@@ -25,8 +25,8 @@ DEBUG = True
 
 # Make sure to use your own hostname here, and/or use`127.0.0.1` for
 # localhost
-ALLOWED_HOSTS = ['8b166e8cfd0048859f2da4ebc2a5b3fe.vfs.cloud9.us-east-1.amazonaws.com',
-                'simple-django-cat-todo.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'),
+                os.environ.get('HOSTNAME')]
 
 
 # Application definition
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 #     }
 # }
 
-DATABASES = {'default': dj_database_url.parse('postgres://ojdaoednphured:77c6babc59b892e343c7180b9016fb2ea96884c2d97aae63a83e932c71c88cc7@ec2-54-247-70-127.eu-west-1.compute.amazonaws.com:5432/df0l5dhthk321b')}
+DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE'))}
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
